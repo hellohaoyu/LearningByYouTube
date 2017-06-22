@@ -39,7 +39,7 @@ var output = detailedOrders.reduce(function(customers, order) {
 		quantity: order[3]
 	});
 
-	return customers;
+	return customers; // Don't forget to return the mid result of reduce.
 }, {});
 
 console.log(output);
