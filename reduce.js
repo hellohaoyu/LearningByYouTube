@@ -17,3 +17,29 @@ var total = orders.reduce(function (sum, order) {
 
 
 console.log(total);
+
+
+
+// More complex reduce usage
+var detailedOrders = [
+    ["Mark Johansson", "waffle iron", 80, 2],
+    ["Mark Johansson", "blender", 200, 1],
+    ["Mark Johansson", "knife", 10, 4],
+    ["Nikita Smith", "waffle iron", 80, 1],
+    ["Nikita Smith", "knife", 10, 2],
+    ["Nikita Smith", "pot", 20, 3]
+];
+
+
+var output = detailedOrders.reduce(function(customers, order) {
+	customers[order[0]] = customers[order[0]] || [];
+	customers[order[0]].push({
+		name: order[1],
+		price: order[2],
+		quantity: order[3]
+	});
+
+	return customers;
+}, {});
+
+console.log(output);
